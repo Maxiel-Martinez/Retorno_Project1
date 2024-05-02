@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo Maxel y Carboncito Los Tonos del Mañana</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 30px;
+        }
+        .form-row {
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .form-group {
+            flex: 1;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            text-align: center;
+            color: #888;
+        }
+        #campos-portatil, #campos-escritorio {
+            display: none;
+        }
+        #cerrar-caso, #exportar-pdf {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Equipo Maxel y Carboncito Los Tonos del Mañana</h1>
+        <form>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="raton">Ratón:</label>
+                    <input type="text" id="raton" name="raton">
+                </div>
+                <div class="form-group">
+                    <label for="diadema">Diadema:</label>
+                    <input type="text" id="diadema" name="diadema">
+                </div>
+                <div class="form-group">
+                    <label for="teclado">Teclado:</label>
+                    <input type="text" id="teclado" name="teclado">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="estado-raton">Estado de Ratón:</label>
+                    <select id="estado-raton" name="estado-raton">
+                        <option value="bueno">Bueno</option>
+                        <option value="danado-leve">Dañado Leve</option>
+                        <option value="danado-grave">Dañado Grave</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="estado-diadema">Estado de la Diadema:</label>
+                    <select id="estado-diadema" name="estado-diadema">
+                        <option value="bueno">Bueno</option>
+                        <option value="danado-leve">Dañado Leve</option>
+                        <option value="danado-grave">Dañado Grave</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="estado-teclado">Estado del Teclado:</label>
+                    <select id="estado-teclado" name="estado-teclado">
+                        <option value="bueno">Bueno</option>
+                        <option value="danado-leve">Dañado Leve</option>
+                        <option value="danado-grave">Dañado Grave</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="docking">Docking:</label>
+                    <input type="text" id="docking" name="docking">
+                </div>
+                <div class="form-group">
+                    <label for="estado-docking">Estado del Docking:</label>
+                    <select id="estado-docking" name="estado-docking">
+                        <option value="bueno">Bueno</option>
+                        <option value="danado-leve">Dañado Leve</option>
+                        <option value="danado-grave">Dañado Grave</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="serial-docking">Serial del Docking:</label>
+                    <input type="text" id="serial-docking" name="serial-docking">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="monitor">Monitor:</label>
+                    <input type="text" id="monitor" name="monitor">
+                </div>
+                <div class="form-group">
+                    <label for="estado-monitor">Estado del Monitor:</label>
+                    <select id="estado-monitor" name="estado-monitor">
+                        <option value="bueno">Bueno</option>
+                        <option value="danado-leve">Dañado Leve</option>
+                        <option value="danado-grave">Dañado Grave</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="dispositivo">Dispositivo:</label>
+                    <select id="dispositivo" name="dispositivo">
+                        <option value="portatil">Portátil</option>
+                        <option value="escritorio">Escritorio</option>
+                    </select>
+                </div>
+            </div>
+            <div id="campos-portatil" class="form-row" style="display: none;">
+                <div class="form-group">
+                    <label for="serial-diadema">Serial de la Diadema:</label>
+                    <input type="text" id="serial-diadema" name="serial-diadema" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="serial-docking-portatil">Serial del Docking:</label>
+                    <input type="text" id="serial-docking-portatil" name="serial-docking-portatil">
+                </div>
+            </div>
+            <div id="campos-escritorio" class="form-row" style="display: none;">
+                <div class="form-group">
+                    <label for="serial-monitor">Serial del Monitor:</label>
+                    <input type="text" id="serial-monitor" name="serial-monitor">
+                </div>
+                <div class="form-group">
+                    <label for="activo-monitor">Activo del Monitor:</label>
+                    <input type="text" id="activo-monitor" name="activo-monitor">
+                </div>
+                <div class="form-group">
+                    <label for="serial-dispositivo">Serial del Dispositivo:</label>
+                    <input type="text" id="serial-dispositivo" name="serial-dispositivo">
+                </div>
+                <div class="form-group">
+                    <label for="activo-dispositivo">Activo del Dispositivo:</label>
+                    <input type="text" id="activo-dispositivo" name="activo-dispositivo">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="observaciones">Observaciones:</label>
+                    <textarea id="observaciones" name="observaciones" rows="4"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="checkbox" id="cerrar-caso" name="cerrar-caso">
+                    <label for="cerrar-caso">Cerrar caso</label>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="exportar-pdf" name="exportar-pdf">
+                    <label for="exportar-pdf">Exportar como PDF</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+        <p>APLICAN TÉRMINOS Y CONDICIONES</p>
+    </div>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
