@@ -24,3 +24,13 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+        // Función para cambiar el estado del checkbox al hacer clic en el label
+        document.querySelectorAll('.checkbox-group label').forEach(function (label) {
+            label.addEventListener('click', function () {
+                var checkbox = this.previousElementSibling;
+                checkbox.checked = !checkbox.checked;
+            });
+        });
+    })

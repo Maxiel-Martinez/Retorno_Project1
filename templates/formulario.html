@@ -17,6 +17,32 @@
     <div class="container">
         <form>
             <div class="form-column">
+                <div class="form-group">
+                    <label for="caso">N° de caso:</label>
+                    <input type="text" id="caso" name="caso">
+                </div>
+                  <div class="form-group">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" maxlength="255">
+                  </div>
+                  <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono" maxlength="255">
+                  </div>
+                  <div class="form-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="cedula">Cédula:</label>
+                    <input type="text" id="cedula" name="cedula" maxlength="20" required>
+                  </div>
+                <div class="form-group">
+                    <label for="acta">Acta:</label>
+                    <select id="acta" name="acta">
+                      <option value="retorno">...</option>
+                      <option value="retorno">de retorno</option>
+                    </select>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="raton">Ratón:</label>
@@ -127,15 +153,15 @@
                     <label for="observaciones">Observaciones:</label>
                     <textarea id="observaciones" name="observaciones" rows="4"></textarea>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <input type="checkbox" id="cerrar-caso" name="cerrar-caso">
-                    <label for="cerrar-caso">Cerrar caso</label>
-                </div>
-                <div class="form-group">
-                    <input type="checkbox" id="exportar-pdf" name="exportar-pdf">
-                    <label for="exportar-pdf">Exportar como PDF</label>
+                <div class="form-row">
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="cerrar-caso" name="cerrar-caso" checked>
+                        <label for="cerrar-caso">Cerrar caso</label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="exportar-pdf" name="exportar-pdf" checked>
+                        <label for="exportar-pdf">Exportar como PDF</label>
+                    </div>
                 </div>
             </div>
             <div class="form-row">

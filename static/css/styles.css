@@ -36,7 +36,8 @@ h1 {
 .form-group {            
     flex: 1;            
     padding: 10px;        
-    }         
+    }  
+    
 label {            
     display: block;           
     font-weight: 600;            
@@ -72,3 +73,11 @@ p {
     color: #888;            
     margin-top: 20px;            
     font-size: 14px;        }     
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    }
+.checkbox-group input[type="checkbox"] {
+    margin-right: 8px; /* Ajusta el espaciado entre el checkbox y el texto del label */
+ }
