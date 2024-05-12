@@ -15,21 +15,21 @@
         <h1>Equipo Maxel y Carboncito Los Tonos del Mañana</h1>
     </header>
     <div class="container">
-        <form>
+        <form id="formulario">
             <h2>Información del caso</h2>
             <fieldset>
                 <legend>Detalles del caso</legend>
                 <div class="form-group">
                     <label for="caso">N° de caso:</label>
-                    <input type="text" id="caso" name="caso">
+                    <input type="text" id="caso" name="caso" required>
                 </div>
                 <div class="form-group">
                     <label for="nombre">Nombre completo:</label>
-                    <input type="text" id="nombre" name="nombre" maxlength="255">
+                    <input type="text" id="nombre" name="nombre" maxlength="255" required>
                 </div>
                 <div class="form-group">
                     <label for="telefono">Teléfono:</label>
-                    <input type="text" id="telefono" name="telefono" maxlength="255">
+                    <input type="tel" id="telefono" name="telefono" maxlength="255" required>
                 </div>
                 <div class="form-group">
                     <label for="correo">Correo:</label>
@@ -41,8 +41,8 @@
                 </div>
                 <div class="form-group">
                     <label for="acta">Acta:</label>
-                    <select id="acta" name="acta">
-                        <option value="retorno">...</option>
+                    <select id="acta" name="acta" required>
+                        <option value="">Seleccione una opción</option>
                         <option value="retorno">de retorno</option>
                     </select>
                 </div>
@@ -155,28 +155,36 @@
                         <label for="observaciones">Observaciones:</label>
                         <textarea id="observaciones" name="observaciones" rows="4"></textarea>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="cerrar-caso" name="cerrar-caso" checked>
-                            <label for="cerrar-caso">Cerrar caso</label>
-                        </div>
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="exportar-pdf" name="exportar-pdf" checked>
-                            <label for="exportar-pdf">Exportar como PDF</label>
-                        </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="cerrar-caso" name="cerrar-caso" checked>
+                        <label for="cerrar-caso">Cerrar caso</label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="exportar-pdf" name="exportar-pdf" checked>
+                        <label for="exportar-pdf">Exportar como PDF</label>
                     </div>
                 </div>
-            </fieldset>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="firma">Firma:</label>
-                    <input type="file" id="firma" name="firma" accept="image/*">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firma">Firma:</label>
+                        <input type="file" id="firma" name="firma" accept="image/*" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
-                <button type="submit" class="btn btn-primary">Guardar</button>
-            </div>
-        </form>
-        <p>APLICAN TÉRMINOS Y CONDICIONES</p>
-    </div>
-    <script src="{% static 'js/scripts.js' %}"></script>
-</body>
-</html>
+            </form>
+            <p>APLICAN TÉRMINOS Y CONDICIONES</p>
+        </div>
+        
+        <script>
+            document.getElementById("formulario").addEventListener("submit", function(event) {
+                var formulario = event.target;
+                var valido = formulario.checkValidity();
+                if (!valido) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                formulario.classList.add('was-validated');
+            });
+        </script>
