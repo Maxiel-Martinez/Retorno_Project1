@@ -104,12 +104,6 @@
                         <option value="Dado de baja">Dado de baja</option>
                     </select><br>
 
-                    <label for="segundoMonitor">¿Segundo Monitor?:</label>
-                    <select id="segundoMonitor" name="segundoMonitor" onchange="toggleFields()">
-                        <option value="No">No</option>
-                        <option value="Si">Sí</option>
-                    </select><br>
-
                     <label for="serialMonitor">Serial del Monitor:</label>
                     <input type="text" id="serialMonitor" name="serialMonitor" disabled><br>
 
@@ -122,6 +116,13 @@
                         <option value="Dañado">Dañado</option>
                         <option value="Dado de baja">Dado de baja</option>
                     </select><br>
+
+                    <label for="segundoMonitor">¿Segundo Monitor?:</label>
+                    <select id="segundoMonitor" name="segundoMonitor" onchange="toggleFields()">
+                        <option value="No">No</option>
+                        <option value="Si">Sí</option>
+                    </select><br>
+
 
                     <label for="serialMonitor2">Serial del Segundo Monitor:</label>
                     <input type="text" id="serialMonitor2" name="serialMonitor2" disabled><br>
@@ -138,30 +139,40 @@
             </form>
     </div>
     <script>
-        function toggleFields() {
-            const dispositivo = document.getElementById("dispositivo").value;
-            const diadema = document.getElementById("diadema").value;
-            const segundoMonitor = document.getElementById("segundoMonitor").value;
+    function toggleFields() {
+    const dispositivo = document.getElementById("dispositivo").value;
+    const diadema = document.getElementById("diadema").value;
+    const raton = document.getElementById("raton").value;
+    const teclado = document.getElementById("teclado").value;
+    const segundoMonitor = document.getElementById("segundoMonitor").value;
 
-            const isLaptop = dispositivo === "Portatil";
-            const isDesktop = dispositivo === "Escritorio";
+    const isLaptop = dispositivo === "Portatil";
+    const isDesktop = dispositivo === "Escritorio";
 
-            // Toggle sections visibility
-            document.getElementById("sectionPortatil").style.display = isLaptop ? 'block' : 'none';
-            document.getElementById("sectionEscritorio").style.display = isDesktop ? 'block' : 'none';
+    // Toggle sections visibility
+    document.getElementById("sectionPortatil").style.display = isLaptop ? 'block' : 'none';
+    document.getElementById("sectionEscritorio").style.display = isDesktop ? 'block' : 'none';
 
-            // Toggle diadema fields
-            document.getElementById("serialDiadema").disabled = diadema !== "Si";
+    // Toggle diadema fields
+    document.getElementById("serialDiadema").disabled = diadema !== "Si";
 
-            // Toggle segundo monitor fields
-            document.getElementById("serialMonitor2").disabled = !(isDesktop && segundoMonitor === "Si");
-            document.getElementById("activoMonitor2").disabled = !(isDesktop && segundoMonitor === "Si");
+    // Toggle segundo monitor fields
+    document.getElementById("serialMonitor2").disabled = !(isDesktop && segundoMonitor === "Si");
+    document.getElementById("activoMonitor2").disabled = !(isDesktop && segundoMonitor === "Si");
 
-            // Toggle fields based on dispositivo type
-            document.getElementById("serialDispositivo").disabled = dispositivo === "";
-            document.getElementById("activoDispositivo").disabled = dispositivo === "";
-            document.getElementById("estadoDispositivo").disabled = dispositivo === "";
-        }
+    // Toggle fields based on dispositivo type
+    document.getElementById("serialDispositivo").disabled = dispositivo === "";
+    document.getElementById("activoDispositivo").disabled = dispositivo === "";
+    document.getElementById("estadoDispositivo").disabled = dispositivo === "";
+    document.getElementById("raton").disabled = isLaptop;
+    document.getElementById("estadoRaton").disabled = isLaptop || raton === "No";
+    document.getElementById("teclado").disabled = isLaptop;
+    document.getElementById("estadoTeclado").disabled = isLaptop || teclado === "No";
+    document.getElementById("serialMonitor").disabled = isLaptop;
+    document.getElementById("activoMonitor").disabled = isLaptop;
+    document.getElementById("estadoMonitor").disabled = isLaptop;
+    document.getElementById("camara").disabled = isLaptop;
+}
     </script>
 </body>
 </html>
