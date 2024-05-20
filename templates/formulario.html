@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Retorno de Equipos</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<<<<<<< HEAD
   
 </head>
 
@@ -165,3 +166,187 @@
     </script>
 </body>
 </html>
+=======
+    <style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Equipo Maxel y Carboncito Los Tonos del Mañana</h1>
+    </header>
+    <div class="container">
+        <form id="formulario">
+            <h2>Información del caso</h2>
+            <fieldset>
+                <legend>Detalles del caso</legend>
+                <div class="form-group">
+                    <label for="caso">N° de caso:</label>
+                    <input type="text" id="caso" name="caso" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" maxlength="255" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" maxlength="255" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="cedula">Cédula:</label>
+                    <input type="text" id="cedula" name="cedula" maxlength="20" required>
+                </div>
+                <div class="form-group">
+                    <label for="acta">Acta:</label>
+                    <select id="acta" name="acta" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="retorno">de retorno</option>
+                    </select>
+                </div>
+            </fieldset>
+            <h2>Dispositivos</h2>
+            <fieldset>
+                <legend>Detalles de los dispositivos</legend>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="raton">Ratón:</label>
+                        <input type="text" id="raton" name="raton">
+                    </div>
+                    <div class="form-group">
+                        <label for="diadema">Diadema:</label>
+                        <input type="text" id="diadema" name="diadema">
+                    </div>
+                    <div class="form-group">
+                        <label for="teclado">Teclado:</label>
+                        <input type="text" id="teclado" name="teclado">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="estado-raton">Estado de Ratón:</label>
+                        <select id="estado-raton" name="estado-raton">
+                            <option value="bueno">Bueno</option>
+                            <option value="danado-leve">Dañado Leve</option>
+                            <option value="danado-grave">Dañado Grave</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado-diadema">Estado de la Diadema:</label>
+                        <select id="estado-diadema" name="estado-diadema">
+                            <option value="bueno">Bueno</option>
+                            <option value="danado-leve">Dañado Leve</option>
+                            <option value="danado-grave">Dañado Grave</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="estado-teclado">Estado del Teclado:</label>
+                        <select id="estado-teclado" name="estado-teclado">
+                            <option value="bueno">Bueno</option>
+                            <option value="danado-leve">Dañado Leve</option>
+                            <option value="danado-grave">Dañado Grave</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="docking">Docking:</label>
+                        <input type="text" id="docking" name="docking">
+                    </div>
+                    <div class="form-group">
+                        <label for="estado-docking">Estado del Docking:</label>
+                        <select id="estado-docking" name="estado-docking">
+                            <option value="bueno">Bueno</option>
+                            <option value="danado-leve">Dañado Leve</option>
+                            <option value="danado-grave">Dañado Grave</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="serial-docking">Serial del Docking:</label>
+                        <input type="text" id="serial-docking" name="serial-docking">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="monitor">Monitor:</label>
+                        <input type="text" id="monitor" name="monitor">
+                    </div>
+                    <div class="form-group">
+                        <label for="estado-monitor">Estado del Monitor:</label>
+                        <select id="estado-monitor" name="estado-monitor">
+                            <option value="bueno">Bueno</option>
+                            <option value="danado-leve">Dañado Leve</option>
+                            <option value="danado-grave">Dañado Grave</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dispositivo">Dispositivo:</label>
+                        <select id="dispositivo" name="dispositivo">
+                            <option value="portatil">Portátil</option>
+                            <option value="escritorio">Escritorio</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="campos-portatil" class="form-row" style="display: none;">
+                    <div class="form-group">
+                        <label for="serial-diadema">Serial del monitor:</label>
+                        <input type="text" id="serial-monitor" name="serial-monitor">
+    
+                        <label for="serial-diadema">activo del monitor:</label>
+                        <input type="text" id="activo-monitor" name="activo-monitor">
+                    </div>
+                </div>
+                <div id="campos-escritorio" class="form-row" style="display: none;">
+                    <label for="serial-diadema">Serial de la Diadema:</label>
+                    <input type="text" id="serial-diadema" name="serial-diadema">
+    
+                    <label for="serial-diadema">Serial del monitor:</label>
+                    <input type="text" id="serial-monitor" name="serial-monitor">
+    
+                    <label for="serial-diadema">activo del monitor:</label>
+                    <input type="text" id="activo-monitor" name="activo-monitor">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones:</label>
+                        <textarea id="observaciones" name="observaciones" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="cerrar-caso" name="cerrar-caso" checked>
+                        <label for="cerrar-caso">Cerrar caso</label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="exportar-pdf" name="exportar-pdf" checked>
+                        <label for="exportar-pdf">Exportar como PDF</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firma">Firma:</label>
+                        <input type="file" id="firma" name="firma" accept="image/*" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+            <p>APLICAN TÉRMINOS Y CONDICIONES</p>
+        </div>
+        
+        <script>
+            document.getElementById("formulario").addEventListener("submit", function(event) {
+                var formulario = event.target;
+                var valido = formulario.checkValidity();
+                if (!valido) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                formulario.classList.add('was-validated');
+            });
+        </script>
+>>>>>>> 571fc03284cb6b5e766f2f0a6324776c594e8123

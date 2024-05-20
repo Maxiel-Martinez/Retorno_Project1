@@ -6,6 +6,7 @@ function toggleFields() {
     const isLaptop = dispositivo === "Portatil";
     const isDesktop = dispositivo === "Escritorio";
 
+<<<<<<< HEAD
     // Toggle sections visibility
     document.getElementById("sectionPortatil").style.display = isLaptop ? 'block' : 'none';
     document.getElementById("sectionEscritorio").style.display = isDesktop ? 'block' : 'none';
@@ -22,3 +23,24 @@ function toggleFields() {
     document.getElementById("activoDispositivo").disabled = dispositivo === "";
     document.getElementById("estadoDispositivo").disabled = dispositivo === "";
 }
+=======
+    diademaInput.addEventListener('input', function() {
+        if (this.value) {
+            serialDiadema.disabled = false;
+        } else {
+            serialDiadema.disabled = true;
+            serialDiadema.value = '';
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+        // Función para cambiar el estado del checkbox al hacer clic en el label
+        document.querySelectorAll('.checkbox-group label').forEach(function (label) {
+            label.addEventListener('click', function () {
+                var checkbox = this.previousElementSibling;
+                checkbox.checked = !checkbox.checked;
+            });
+        });
+    })
+>>>>>>> 571fc03284cb6b5e766f2f0a6324776c594e8123
