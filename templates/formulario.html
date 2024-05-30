@@ -4,187 +4,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipo Maxel y Carboncito Los Tonos del Mañana</title>
+    <title>Formulario de Retorno de Equipos</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <style>
-
-    </style>
+  
 </head>
-<body>
-    <header>
-        <h1>Equipo Maxel y Carboncito Los Tonos del Mañana</h1>
-    </header>
+
+<body onload="toggleFields()">
     <div class="container">
-        <form id="formulario">
-            <h2>Información del caso</h2>
-            <fieldset>
-                <legend>Detalles del caso</legend>
-                <div class="form-group">
-                    <label for="caso">N° de caso:</label>
-                    <input type="text" id="caso" name="caso" required>
+
+            <img src="{% static 'iconos/americas.png' %}" alt="Descripción de la imagen" class="logo">
+            <h1>Formulario de Retorno de Equipos</h1>
+            <h2>Acta de Responsabilidad de Equipos de Trabajo</h2>
+            <form>
+                <label for="numeroCaso">Número de Caso:</label>
+                <input type="text" id="numeroCaso" name="numeroCaso"><br>
+
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" name="nombres"><br>
+
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos"><br>
+
+                <label for="campana">Campaña:</label>
+                <input type="text" id="campana" name="campana"><br>
+
+                <label for="correoPersonal">Correo Personal:</label>
+                <input type="email" id="correoPersonal" name="correoPersonal"><br>
+
+                <label for="correoJefe">Correo del Jefe:</label>
+                <input type="email" id="correoJefe" name="correoJefe"><br>
+
+                <label for="dispositivo">Dispositivo:</label>
+                <select id="dispositivo" name="dispositivo" onchange="toggleFields()">
+                    <option value="">Seleccione</option>
+                    <option value="Portatil">Portátil</option>
+                    <option value="Escritorio">Escritorio</option>
+                </select><br>
+
+                <div id="sectionPortatil" class="section">
+                    <h2>Detalles del Portátil</h2>
+                    <label for="serialDispositivo">Serial del Dispositivo:</label>
+                    <input type="text" id="serialDispositivo" name="serialDispositivo" disabled><br>
+
+                    <label for="activoDispositivo">Activo del Dispositivo:</label>
+                    <input type="text" id="activoDispositivo" name="activoDispositivo" disabled><br>
+
+                    <label for="estadoDispositivo">Estado del Dispositivo:</label>
+                    <select id="estadoDispositivo" name="estadoDispositivo" disabled>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Dañado">Dañado</option>
+                        <option value="Dado de baja">Dado de baja</option>
+                    </select><br>
+
+                    <label for="diadema">Diadema:</label>
+                    <select id="diadema" name="diadema" onchange="toggleFields()">
+                        <option value="No">No</option>
+                        <option value="Si">Sí</option>
+                    </select><br>
+
+                    <label for="serialDiadema">Serial de la Diadema:</label>
+                    <input type="text" id="serialDiadema" name="serialDiadema" disabled><br>
+
+                    <label for="observaciones">Observaciones:</label>
+                    <textarea id="observaciones" name="observaciones" class="full-width"></textarea><br>
+
                 </div>
-                <div class="form-group">
-                    <label for="nombre">Nombre completo:</label>
-                    <input type="text" id="nombre" name="nombre" maxlength="255" required>
+
+                <div id="sectionEscritorio" class="section">
+                    <h2>Detalles del Escritorio</h2>
+                    <label for="raton">Ratón:</label>
+                    <select id="raton" name="raton" onchange="toggleFields()">
+                        <option value="No">No</option>
+                        <option value="Si">Sí</option>
+                    </select><br>
+
+                    <label for="estadoRaton">Estado del Ratón:</label>
+                    <select id="estadoRaton" name="estadoRaton" disabled>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Dañado">Dañado</option>
+                        <option value="Dado de baja">Dado de baja</option>
+                    </select><br>
+
+                    <label for="teclado">Teclado:</label>
+                    <select id="teclado" name="teclado" onchange="toggleFields()">
+                        <option value="No">No</option>
+                        <option value="Si">Sí</option>
+                    </select><br>
+
+                    <label for="camara">Cámara:</label>
+                    <select id="camara" name="camara">
+                        <option value="No">No</option>
+                        <option value="Si">Sí</option>
+                    </select><br>
+
+                    <label for="estadoTeclado">Estado del Teclado:</label>
+                    <select id="estadoTeclado" name="estadoTeclado" disabled>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Dañado">Dañado</option>
+                        <option value="Dado de baja">Dado de baja</option>
+                    </select><br>
+
+                    <label for="serialMonitor">Serial del Monitor:</label>
+                    <input type="text" id="serialMonitor" name="serialMonitor" disabled><br>
+
+                    <label for="activoMonitor">Activo del Monitor:</label>
+                    <input type="text" id="activoMonitor" name="activoMonitor" disabled><br>
+
+                    <label for="estadoMonitor">Estado del Monitor:</label>
+                    <select id="estadoMonitor" name="estadoMonitor" disabled>
+                        <option value="Bueno">Bueno</option>
+                        <option value="Dañado">Dañado</option>
+                        <option value="Dado de baja">Dado de baja</option>
+                    </select><br>
+
+                    <label for="segundoMonitor">¿Segundo Monitor?:</label>
+                    <select id="segundoMonitor" name="segundoMonitor" onchange="toggleFields()">
+                        <option value="No">No</option>
+                        <option value="Si">Sí</option>
+                    </select><br>
+
+
+                    <label for="serialMonitor2">Serial del Segundo Monitor:</label>
+                    <input type="text" id="serialMonitor2" name="serialMonitor2" disabled><br>
+
+                    <label for="activoMonitor2">Activo del Segundo Monitor:</label>
+                    <input type="text" id="activoMonitor2" name="activoMonitor2" disabled><br>
+
+                    <label for="observaciones">Observaciones:</label>
+                    <textarea id="observaciones" name="observaciones" class="full-width"></textarea><br>
                 </div>
-                <div class="form-group">
-                    <label for="telefono">Teléfono:</label>
-                    <input type="tel" id="telefono" name="telefono" maxlength="255" required>
-                </div>
-                <div class="form-group">
-                    <label for="correo">Correo:</label>
-                    <input type="email" id="correo" name="correo" required>
-                </div>
-                <div class="form-group">
-                    <label for="cedula">Cédula:</label>
-                    <input type="text" id="cedula" name="cedula" maxlength="20" required>
-                </div>
-                <div class="form-group">
-                    <label for="acta">Acta:</label>
-                    <select id="acta" name="acta" required>
-                        <option value="">Seleccione una opción</option>
-                        <option value="retorno">de retorno</option>
-                    </select>
-                </div>
-            </fieldset>
-            <h2>Dispositivos</h2>
-            <fieldset>
-                <legend>Detalles de los dispositivos</legend>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="raton">Ratón:</label>
-                        <input type="text" id="raton" name="raton">
-                    </div>
-                    <div class="form-group">
-                        <label for="diadema">Diadema:</label>
-                        <input type="text" id="diadema" name="diadema">
-                    </div>
-                    <div class="form-group">
-                        <label for="teclado">Teclado:</label>
-                        <input type="text" id="teclado" name="teclado">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="estado-raton">Estado de Ratón:</label>
-                        <select id="estado-raton" name="estado-raton">
-                            <option value="bueno">Bueno</option>
-                            <option value="danado-leve">Dañado Leve</option>
-                            <option value="danado-grave">Dañado Grave</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="estado-diadema">Estado de la Diadema:</label>
-                        <select id="estado-diadema" name="estado-diadema">
-                            <option value="bueno">Bueno</option>
-                            <option value="danado-leve">Dañado Leve</option>
-                            <option value="danado-grave">Dañado Grave</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="estado-teclado">Estado del Teclado:</label>
-                        <select id="estado-teclado" name="estado-teclado">
-                            <option value="bueno">Bueno</option>
-                            <option value="danado-leve">Dañado Leve</option>
-                            <option value="danado-grave">Dañado Grave</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="docking">Docking:</label>
-                        <input type="text" id="docking" name="docking">
-                    </div>
-                    <div class="form-group">
-                        <label for="estado-docking">Estado del Docking:</label>
-                        <select id="estado-docking" name="estado-docking">
-                            <option value="bueno">Bueno</option>
-                            <option value="danado-leve">Dañado Leve</option>
-                            <option value="danado-grave">Dañado Grave</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="serial-docking">Serial del Docking:</label>
-                        <input type="text" id="serial-docking" name="serial-docking">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="monitor">Monitor:</label>
-                        <input type="text" id="monitor" name="monitor">
-                    </div>
-                    <div class="form-group">
-                        <label for="estado-monitor">Estado del Monitor:</label>
-                        <select id="estado-monitor" name="estado-monitor">
-                            <option value="bueno">Bueno</option>
-                            <option value="danado-leve">Dañado Leve</option>
-                            <option value="danado-grave">Dañado Grave</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="dispositivo">Dispositivo:</label>
-                        <select id="dispositivo" name="dispositivo">
-                            <option value="portatil">Portátil</option>
-                            <option value="escritorio">Escritorio</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="campos-portatil" class="form-row" style="display: none;">
-                    <div class="form-group">
-                        <label for="serial-diadema">Serial del monitor:</label>
-                        <input type="text" id="serial-monitor" name="serial-monitor">
-    
-                        <label for="serial-diadema">activo del monitor:</label>
-                        <input type="text" id="activo-monitor" name="activo-monitor">
-                    </div>
-                </div>
-                <div id="campos-escritorio" class="form-row" style="display: none;">
-                    <label for="serial-diadema">Serial de la Diadema:</label>
-                    <input type="text" id="serial-diadema" name="serial-diadema">
-    
-                    <label for="serial-diadema">Serial del monitor:</label>
-                    <input type="text" id="serial-monitor" name="serial-monitor">
-    
-                    <label for="serial-diadema">activo del monitor:</label>
-                    <input type="text" id="activo-monitor" name="activo-monitor">
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="observaciones">Observaciones:</label>
-                        <textarea id="observaciones" name="observaciones" rows="4"></textarea>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="cerrar-caso" name="cerrar-caso" checked>
-                        <label for="cerrar-caso">Cerrar caso</label>
-                    </div>
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="exportar-pdf" name="exportar-pdf" checked>
-                        <label for="exportar-pdf">Exportar como PDF</label>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firma">Firma:</label>
-                        <input type="file" id="firma" name="firma" accept="image/*" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                <div class="button-group">
+                    <button type="submit">Guardar</button>
                 </div>
             </form>
-            <p>APLICAN TÉRMINOS Y CONDICIONES</p>
-        </div>
-        
-        <script>
-            document.getElementById("formulario").addEventListener("submit", function(event) {
-                var formulario = event.target;
-                var valido = formulario.checkValidity();
-                if (!valido) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                formulario.classList.add('was-validated');
-            });
-        </script>
+    </div>
+    <script>
+    function toggleFields() {
+    const dispositivo = document.getElementById("dispositivo").value;
+    const diadema = document.getElementById("diadema").value;
+    const raton = document.getElementById("raton").value;
+    const teclado = document.getElementById("teclado").value;
+    const segundoMonitor = document.getElementById("segundoMonitor").value;
+
+    const isLaptop = dispositivo === "Portatil";
+    const isDesktop = dispositivo === "Escritorio";
+
+    // Toggle sections visibility
+    document.getElementById("sectionPortatil").style.display = isLaptop ? 'block' : 'none';
+    document.getElementById("sectionEscritorio").style.display = isDesktop ? 'block' : 'none';
+
+    // Toggle diadema fields
+    document.getElementById("serialDiadema").disabled = diadema !== "Si";
+
+    // Toggle segundo monitor fields
+    document.getElementById("serialMonitor2").disabled = !(isDesktop && segundoMonitor === "Si");
+    document.getElementById("activoMonitor2").disabled = !(isDesktop && segundoMonitor === "Si");
+
+    // Toggle fields based on dispositivo type
+    document.getElementById("serialDispositivo").disabled = dispositivo === "";
+    document.getElementById("activoDispositivo").disabled = dispositivo === "";
+    document.getElementById("estadoDispositivo").disabled = dispositivo === "";
+    document.getElementById("raton").disabled = isLaptop;
+    document.getElementById("estadoRaton").disabled = isLaptop || raton === "No";
+    document.getElementById("teclado").disabled = isLaptop;
+    document.getElementById("estadoTeclado").disabled = isLaptop || teclado === "No";
+    document.getElementById("serialMonitor").disabled = isLaptop;
+    document.getElementById("activoMonitor").disabled = isLaptop;
+    document.getElementById("estadoMonitor").disabled = isLaptop;
+    document.getElementById("camara").disabled = isLaptop;
+}
+    </script>
+</body>
+</html>

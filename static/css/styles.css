@@ -1,87 +1,54 @@
-  /* Estilos CSS */        
-  body {            
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;            
-    margin: 0;            
-    padding: 0;            
-    background-color: #f7f7f7;        
-    }         
-.container {            
-    max-width: 800px;            
-    margin: 40px auto;            
-    background-color: #fff;            
-    padding: 30px;            
-    border-radius: 10px;            
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);        
-    }        
-header {            
-    background-color: #333;            
-    color: #fff;            
-    padding: 20px;            
-    text-align: center;            
-    border-radius: 10px 10px 0 0;       
-    }         
-h1 {            
-    margin: 0;            
-    font-size: 28px;            
-    font-weight: 600;        
-}         
-.form {            
-    margin-bottom: 30px;        
-    }         
-.form-row {            
-    display: flex;            
-    flex-wrap: wrap;            
-    margin-bottom: 20px;        
-    }         
-.form-group {            
-    flex: 1;            
-    padding: 10px;        
-    }  
-    
-label {            
-    display: block;           
-    font-weight: 600;            
-    margin-bottom: 5px;            
-    color: #555;        
-    }         
-input,        select,        textarea {            
-    width: 100%;            
-    padding: 10px;            
-    border: 1px solid #ccc;            
-    border-radius: 4px;            
-    box-sizing: border-box;            
-    font-size: 16px;        
-    }         
-input[type="file"] {            
-    padding: 8px;        
-    }        
-
-.btn.btn-outline-info {
-    border: 2px solid #17a2b8 !important;
-    color: #17a2b8 !important;
-    background-color: transparent !important;
-    border-radius: 5px !important;
-    padding: 10px 20px !important;
-    font-size: 16px !important;
-    cursor: pointer !important;
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+h1, h2 {
+    text-align: center;
+}
+form {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+label {
+    display: inline-block;
+    width: 200px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+input, select, textarea {
+    width: calc(100% - 220px);
+    margin-top: 10px;
+    padding: 5px;
+}
+.full-width {
+    width: calc(100% - 40px);
+}
+.section {
+    display: none;
+    margin-top: 20px;
+    border-top: 1px solid #000;
+    padding-top: 20px;
+}
+.button-group {
+    text-align: center;
+    margin-top: 20px;
 }
 
-.btn.btn-outline-info:hover {
-    background-color: #17a2b8 !important;
-    color: #fff !important;
+.logo {
+    width: 200px; /* Define el ancho deseado */
+    height: auto;/* Esto mantiene la proporción de la imagen */
+    /* float: left;
+    margin-right: 20px;  */
 }
-
-p {             
-    text-align: center;            
-    color: #888;            
-    margin-top: 20px;            
-    font-size: 14px;        }     
-
-.checkbox-group {
-    display: flex;
-    align-items: center;
-    }
-.checkbox-group input[type="checkbox"] {
-    margin-right: 8px; /* Ajusta el espaciado entre el checkbox y el texto del label */
- }
+.container {
+    max-width: 800px; /* Establece el ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor en la página */
+    padding: 20px; /* Agrega un poco de espacio alrededor del contenido */
+    background-color: #f0f0f0; /* Cambia el color de fondo del contenedor */
+    border-radius: 10px; /* Agrega bordes redondeados al contenedor */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agrega una sombra al contenedor */
+}
 

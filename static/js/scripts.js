@@ -1,20 +1,29 @@
-window.addEventListener('DOMContentLoaded', function() {
-    const dispositivoSelect = document.getElementById('dispositivo');
-    const camposPortatil = document.getElementById('campos-portatil');
-    const camposEscritorio = document.getElementById('campos-escritorio');
-    const serialDiadema = document.getElementById('serial-diadema');
-    const diademaInput = document.getElementById('diadema');
+function toggleFields() {
+    const dispositivo = document.getElementById("dispositivo").value;
+    const diadema = document.getElementById("diadema").value;
+    const segundoMonitor = document.getElementById("segundoMonitor").value;
 
-    dispositivoSelect.addEventListener('change', function() {
-        if (this.value === 'portatil') {
-            camposPortatil.style.display = 'flex';
-            camposEscritorio.style.display = 'none';
-        } else {
-            camposPortatil.style.display = 'none';
-            camposEscritorio.style.display = 'flex';
-        }
-    });
+    const isLaptop = dispositivo === "Portatil";
+    const isDesktop = dispositivo === "Escritorio";
 
+<<<<<<< HEAD
+    // Toggle sections visibility
+    document.getElementById("sectionPortatil").style.display = isLaptop ? 'block' : 'none';
+    document.getElementById("sectionEscritorio").style.display = isDesktop ? 'block' : 'none';
+
+    // Toggle diadema fields
+    document.getElementById("serialDiadema").disabled = diadema !== "Si";
+
+    // Toggle segundo monitor fields
+    document.getElementById("serialMonitor2").disabled = !(isDesktop && segundoMonitor === "Si");
+    document.getElementById("activoMonitor2").disabled = !(isDesktop && segundoMonitor === "Si");
+
+    // Toggle fields based on dispositivo type
+    document.getElementById("serialDispositivo").disabled = dispositivo === "";
+    document.getElementById("activoDispositivo").disabled = dispositivo === "";
+    document.getElementById("estadoDispositivo").disabled = dispositivo === "";
+}
+=======
     diademaInput.addEventListener('input', function() {
         if (this.value) {
             serialDiadema.disabled = false;
@@ -34,3 +43,4 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     })
+>>>>>>> 571fc03284cb6b5e766f2f0a6324776c594e8123
