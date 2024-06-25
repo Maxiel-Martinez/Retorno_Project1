@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -136,12 +137,13 @@
 
             <div class="button-group">
                 <button type="submit">Guardar</button>
-            </div>
+                <button type="reset">Limpiar</button>
         </form>
     </div>
 
     </div>
     <script>
+        
     function toggleFields() {
     const dispositivo = document.getElementById("dispositivo").value;
     const diadema = document.getElementById("diadema").value;

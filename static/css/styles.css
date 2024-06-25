@@ -32,11 +32,35 @@ input, select, textarea {
     border-top: 1px solid #000;
     padding-top: 20px;
 }
-.button-group {
+/* .button-group {
     text-align: center;
+    margin-top: 20px;
+} */
+
+.button-group {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
     margin-top: 20px;
 }
 
+.button-group button {
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button-group button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.button-group button:hover {
+    opacity: 0.8;
+}
 .logo {
     width: 200px; /* Define el ancho deseado */
     height: auto;/* Esto mantiene la proporción de la imagen */
@@ -51,4 +75,3 @@ input, select, textarea {
     border-radius: 10px; /* Agrega bordes redondeados al contenedor */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agrega una sombra al contenedor */
 }
-
