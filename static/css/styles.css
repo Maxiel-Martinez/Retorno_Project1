@@ -48,13 +48,13 @@ input, select, textarea {
     padding: 8px 16px;
     font-size: 14px;
     background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    border: 1px solid #D9557C ;
     border-radius: 4px;
     cursor: pointer;
 }
 
 .button-group button[type="submit"] {
-    background-color: #4CAF50;
+    background-color: #b43f62;
     color: white;
 }
 

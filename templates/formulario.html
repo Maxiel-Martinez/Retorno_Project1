@@ -128,6 +128,14 @@
 
                     <label for="activoMonitor2">Activo del Segundo Monitor:</label>
                     <input type="text" id="activoMonitor2" name="activoMonitor2" disabled><br>
+                    <label for="tieneDiadema">¿Diadema?:</label>
+                    <select id="tieneDiadema" name="tieneDiadema" onchange="toggleFields()">
+                        <option value="No">No</option>
+                        <option value="Si">Sí</option>
+                    </select><br>
+
+                    <label for="Diademaserial">Serial de la Diadema:</label>
+                    <input type="text" id="Diademaserial" name="Diademaserial" disabled><br>
 
                     <label for="observaciones">Observaciones:</label>
                     <textarea id="observaciones" name="observaciones" class="full-width"></textarea><br>
@@ -153,6 +161,15 @@
 
     const isLaptop = dispositivo === "Portatil";
     const isDesktop = dispositivo === "Escritorio";
+
+    var tieneDiademaValue = document.getElementById('tieneDiadema').value;
+    var serialDiademaInput = document.getElementById('Diademaserial');
+
+    if (tieneDiademaValue === 'Si') {
+        serialDiademaInput.removeAttribute('disabled');
+    } else {
+        serialDiademaInput.setAttribute('disabled', 'disabled');
+    }
 
     // Toggle sections visibility
     document.getElementById("sectionPortatil").style.display = isLaptop ? 'block' : 'none';
