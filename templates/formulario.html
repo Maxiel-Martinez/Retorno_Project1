@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <title>Formulario de Retorno de Equipos</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
@@ -149,6 +150,27 @@
         </form>
     </div>
 
+    <script>
+        document.getElementById('guardarBtn').addEventListener('click', function(e) {
+            e.preventDefault(); // Previene el envío del formulario
+            generarPDF();
+        });
+    
+        function generarPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            
+            // Aquí capturamos el contenido que quieres en el PDF
+            // Por ejemplo, si quieres el contenido de un div con id 'contenido':
+            const contenido = document.getElementById('contenido').innerText;
+            
+            doc.text(contenido, 10, 10);
+            doc.save('documento.pdf');
+        }
+    </script>
+        <div id="contenido">
+            <!-- Aquí va el contenido que quieres en el PDF -->
+        </div>
     </div>
     <script>
         
