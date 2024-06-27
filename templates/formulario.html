@@ -151,72 +151,132 @@
     </div>
 
     <script>
-        document.getElementById('guardarBtn').addEventListener('click', function(e) {
-            e.preventDefault(); // Previene el envío del formulario
-            generarPDF();
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.button-group button[type="submit"]').addEventListener('click', function(e) {
+                e.preventDefault(); // Previene el envío del formulario
+                generarPDF();
+            });
         });
-    
+        
         function generarPDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
+                
+            // Captura los datos del formulario
+            const numeroCaso = document.getElementById('numeroCaso').value;
+            const nombres = document.getElementById('nombres').value;
+            const apellidos = document.getElementById('apellidos').value;
+            const campana = document.getElementById('campana').value;
+            const correoPersonal = document.getElementById('correoPersonal').value;
+            const correoJefe = document.getElementById('correoJefe').value;
+            const dispositivo = document.getElementById('dispositivo').value;
             
-            // Aquí capturamos el contenido que quieres en el PDF
-            // Por ejemplo, si quieres el contenido de un div con id 'contenido':
-            const contenido = document.getElementById('contenido').innerText;
+            // Comienza a añadir contenido al PDF
+            doc.setFontSize(16);
+            doc.text('Formulario de Retorno de Equipos', 10, 10);
+            doc.setFontSize(12);
+            doc.text(`Número de Caso: ${numeroCaso}`, 10, 20);
+            doc.text(`Nombres: ${nombres}`, 10, 30);
+            doc.text(`Apellidos: ${apellidos}`, 10, 40);
+            doc.text(`Campaña: ${campana}`, 10, 50);
+            doc.text(`Correo Personal: ${correoPersonal}`, 10, 60);
+            doc.text(`Correo del Jefe: ${correoJefe}`, 10, 70);
+            doc.text(`Dispositivo: ${dispositivo}`, 10, 80);
             
-            doc.text(contenido, 10, 10);
-            doc.save('documento.pdf');
-        }
-    </script>
-        <div id="contenido">
-            <!-- Aquí va el contenido que quieres en el PDF -->
-        </div>
-    </div>
-    <script>
+            // Añade más campos según el tipo de dispositivo
+            if (dispositivo === 'Portatil') {
+                const serialDispositivo = document.getElementById('serialDispositivo').value;
+                const activoDispositivo = document.getElementById('activoDispositivo').value;
+                const estadoDispositivo = document.getElementById('estadoDispositivo').value;
+                const diadema = document.getElementById('diadema').value;
+                const serialDiadema = document.getElementById('serialDiadema').value;
+                const observaciones = document.getElementById('observaciones').value;
+            
+                doc.text(`Serial del Dispositivo: ${serialDispositivo}`, 10, 90);
+                doc.text(`Activo del Dispositivo: ${activoDispositivo}`, 10, 100);
+                doc.text(`Estado del Dispositivo: ${estadoDispositivo}`, 10, 110);
+                doc.text(`Diadema: ${diadema}`, 10, 120);
+                doc.text(`Serial de la Diadema: ${serialDiadema}`, 10, 130);
+                doc.text(`Observaciones: ${observaciones}`, 10, 140);
+            } else if (dispositivo === 'Escritorio') {
+                const raton = document.getElementById('raton').value;
+                const estadoRaton = document.getElementById('estadoRaton').value;
+                const teclado = document.getElementById('teclado').value;
+                const camara = document.getElementById('camara').value;
+                const estadoTeclado = document.getElementById('estadoTeclado').value;
+                const serialMonitor = document.getElementById('serialMonitor').value;
+                const activoMonitor = document.getElementById('activoMonitor').value;
+                const estadoMonitor = document.getElementById('estadoMonitor').value;
+                const segundoMonitor = document.getElementById('segundoMonitor').value;
+                const serialMonitor2 = document.getElementById('serialMonitor2').value;
+                const activoMonitor2 = document.getElementById('activoMonitor2').value;
+                const tieneDiadema = document.getElementById('tieneDiadema').value;
+                const Diademaserial = document.getElementById('Diademaserial').value;
+                const observaciones = document.getElementById('observaciones').value;
         
-    function toggleFields() {
-    const dispositivo = document.getElementById("dispositivo").value;
-    const diadema = document.getElementById("diadema").value;
-    const raton = document.getElementById("raton").value;
-    const teclado = document.getElementById("teclado").value;
-    const segundoMonitor = document.getElementById("segundoMonitor").value;
+                doc.text(`Ratón: ${raton}`, 10, 90);
+                doc.text(`Estado del Ratón: ${estadoRaton}`, 10, 100);
+                doc.text(`Teclado: ${teclado}`, 10, 110);
+                doc.text(`Cámara: ${camara}`, 10, 120);
+                doc.text(`Estado del Teclado: ${estadoTeclado}`, 10, 130);
+                doc.text(`Serial del Monitor: ${serialMonitor}`, 10, 140);
+                doc.text(`Activo del Monitor: ${activoMonitor}`, 10, 150);
+                doc.text(`Estado del Monitor: ${estadoMonitor}`, 10, 160);
+                doc.text(`Segundo Monitor: ${segundoMonitor}`, 10, 170);
+                doc.text(`Serial del Segundo Monitor: ${serialMonitor2}`, 10, 180);
+                doc.text(`Activo del Segundo Monitor: ${activoMonitor2}`, 10, 190);
+                doc.text(`¿Diadema?: ${tieneDiadema}`, 10, 200);
+                doc.text(`Serial de la Diadema: ${Diademaserial}`, 10, 210);
+                doc.text(`Observaciones: ${observaciones}`, 10, 220);
+            }
+            
+            doc.save('formulario_retorno_equipos.pdf');
+        }
+        
+        function toggleFields() {
+            const dispositivo = document.getElementById("dispositivo").value;
+            const diadema = document.getElementById("diadema").value;
+            const raton = document.getElementById("raton").value;
+            const teclado = document.getElementById("teclado").value;
+            const segundoMonitor = document.getElementById("segundoMonitor").value;
+        
+            const isLaptop = dispositivo === "Portatil";
+            const isDesktop = dispositivo === "Escritorio";
+        
+            var tieneDiademaValue = document.getElementById('tieneDiadema').value;
+            var serialDiademaInput = document.getElementById('Diademaserial');
+        
+            if (tieneDiademaValue === 'Si') {
+                serialDiademaInput.removeAttribute('disabled');
+            } else {
+                serialDiademaInput.setAttribute('disabled', 'disabled');
+            }
+        
+            // Toggle sections visibility
+            document.getElementById("sectionPortatil").style.display = isLaptop ? 'block' : 'none';
+            document.getElementById("sectionEscritorio").style.display = isDesktop ? 'block' : 'none';
+        
+            // Toggle diadema fields
+            document.getElementById("serialDiadema").disabled = diadema !== "Si";
+        
+            // Toggle segundo monitor fields
+            document.getElementById("serialMonitor2").disabled = !(isDesktop && segundoMonitor === "Si");
+            document.getElementById("activoMonitor2").disabled = !(isDesktop && segundoMonitor === "Si");
+        
+            // Toggle fields based on dispositivo type
+            document.getElementById("serialDispositivo").disabled = dispositivo === "";
+            document.getElementById("activoDispositivo").disabled = dispositivo === "";
+            document.getElementById("estadoDispositivo").disabled = dispositivo === "";
+            document.getElementById("raton").disabled = isLaptop;
+            document.getElementById("estadoRaton").disabled = isLaptop || raton === "No";
+            document.getElementById("teclado").disabled = isLaptop;
+            document.getElementById("estadoTeclado").disabled = isLaptop || teclado === "No";
+            document.getElementById("serialMonitor").disabled = isLaptop;
+            document.getElementById("activoMonitor").disabled = isLaptop;
+            document.getElementById("estadoMonitor").disabled = isLaptop;
+            document.getElementById("camara").disabled = isLaptop;
+        }
+        </script>
 
-    const isLaptop = dispositivo === "Portatil";
-    const isDesktop = dispositivo === "Escritorio";
-
-    var tieneDiademaValue = document.getElementById('tieneDiadema').value;
-    var serialDiademaInput = document.getElementById('Diademaserial');
-
-    if (tieneDiademaValue === 'Si') {
-        serialDiademaInput.removeAttribute('disabled');
-    } else {
-        serialDiademaInput.setAttribute('disabled', 'disabled');
-    }
-
-    // Toggle sections visibility
-    document.getElementById("sectionPortatil").style.display = isLaptop ? 'block' : 'none';
-    document.getElementById("sectionEscritorio").style.display = isDesktop ? 'block' : 'none';
-
-    // Toggle diadema fields
-    document.getElementById("serialDiadema").disabled = diadema !== "Si";
-
-    // Toggle segundo monitor fields
-    document.getElementById("serialMonitor2").disabled = !(isDesktop && segundoMonitor === "Si");
-    document.getElementById("activoMonitor2").disabled = !(isDesktop && segundoMonitor === "Si");
-
-    // Toggle fields based on dispositivo type
-    document.getElementById("serialDispositivo").disabled = dispositivo === "";
-    document.getElementById("activoDispositivo").disabled = dispositivo === "";
-    document.getElementById("estadoDispositivo").disabled = dispositivo === "";
-    document.getElementById("raton").disabled = isLaptop;
-    document.getElementById("estadoRaton").disabled = isLaptop || raton === "No";
-    document.getElementById("teclado").disabled = isLaptop;
-    document.getElementById("estadoTeclado").disabled = isLaptop || teclado === "No";
-    document.getElementById("serialMonitor").disabled = isLaptop;
-    document.getElementById("activoMonitor").disabled = isLaptop;
-    document.getElementById("estadoMonitor").disabled = isLaptop;
-    document.getElementById("camara").disabled = isLaptop;
-}
-    </script>
 </body>
 </html>
