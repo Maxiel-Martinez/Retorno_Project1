@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    background-color: #f0ebe7;
 }
 h1, h2 {
     text-align: center;
@@ -74,7 +75,7 @@ input, select, textarea {
     max-width: 800px; /* Establece el ancho máximo del contenedor */
     margin: 0 auto; /* Centra el contenedor en la página */
     padding: 20px; /* Agrega un poco de espacio alrededor del contenido */
-    background-color: #f1e8ed; /* Cambia el color de fondo del contenedor */
+    background-color: #faf3f7; /* Cambia el color de fondo del contenedor */
     border-radius: 10px; /* Agrega bordes redondeados al contenedor */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Agrega una sombra al contenedor */
 }
